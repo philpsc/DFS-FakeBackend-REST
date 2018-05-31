@@ -12,7 +12,7 @@ Apache Tomcat 7 hier runterladen, und zwar die Core Distribution. (64-bit Window
 
 ------------------------------------------------------------
 Pfadstruktur: 
-ip:8080/dfs/webapi/users/{userId}/images/{imageId}/thumbnail
+ip:port/dfs/webapi/users/{userId}/images/{imageId}/thumbnail
 						  /metadata
 
 ------------------------------------------------------------
