@@ -7,7 +7,7 @@ Installation:
 Apache Tomcat 7 hier runterladen, und zwar die Core Distribution. (64-bit Windows zip für Windows)
 2. Entpacken
 3. RUNNING.txt folgen um den Server zu starten (Java-Umgebungsvariable setzen, Kommandos zum starten/stoppen)
-4. dfs.war in den Ordner wo Apache Tomcat liegt /webapps legen
+4. dfs.war (aus /target) in den Ordner wo Apache Tomcat liegt /webapps legen
 5. probieren und sagen ob es geht
 
 ------------------------------------------------------------
