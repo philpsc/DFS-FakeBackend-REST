@@ -17,11 +17,11 @@ public class ThumbnailResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public URL getThumbnail(@PathParam("userId") String userId, @PathParam("imageId") int imageId) throws MalformedURLException {
+	public URL getThumbnail(@PathParam("userId") int userId, @PathParam("imageId") int imageId) throws MalformedURLException {
 		Image matchingImage = new Image();
 		List<Image> images = UserService.getUser(userId).getImageList();
 		for (Image image: images) {
-			if (image.getImageId() == imageId)
+			if (image.getId() == imageId)
 				matchingImage = image;
 		}
 		return matchingImage.getThumbnail();		

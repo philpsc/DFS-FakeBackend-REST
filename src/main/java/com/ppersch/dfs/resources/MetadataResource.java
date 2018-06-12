@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.ppersch.dfs.fakeBackend.Image;
-import com.ppersch.dfs.fakeBackend.Metadata;
+import com.ppersch.dfs.fakeBackend.MetaData;
 import com.ppersch.dfs.fakeBackend.UserService;
 
 @Path("/users/{userId}/images/{imageId}/metadata")
@@ -18,13 +18,13 @@ public class MetadataResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Metadata getMetadata(@PathParam("userId") String userId, @PathParam("imageId") int imageId) throws MalformedURLException {
+	public MetaData getMetadata(@PathParam("userId") int userId, @PathParam("imageId") int imageId) throws MalformedURLException {
 		Image matchingImage = new Image();
 		List<Image> images = UserService.getUser(userId).getImageList();
 		for (Image image: images) {
-			if (image.getImageId() == imageId)
+			if (image.getId() == imageId)
 				matchingImage = image;
 		}
-		return matchingImage.getMetadata();		
+		return matchingImage.getMetaData();		
 	}
 }

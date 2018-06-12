@@ -5,36 +5,36 @@ import java.net.URL;
 
 public class Image {
 	
-	private int imageId;
-	private URL fileImage;
+	private int id;
+	private URL imageSource;
 	private URL thumbnail;
-	private Metadata metadata;
+	private MetaData metaData;
 	private User user;
 	
 	public Image() {}
 	
-	public Image(User user, URL fileImage, URL thumbnail, Metadata metadata) throws MalformedURLException {
+	public Image(User user, URL fileImage, URL thumbnail, MetaData metadata) throws MalformedURLException {
 		this.user = user;
-		this.imageId = user.getImageList().size()+1;
-		this.fileImage = fileImage;
+		this.id = user.getImageList().size()+1;
+		this.imageSource = fileImage;
 		this.thumbnail = thumbnail;
-		this.metadata = metadata;
+		this.metaData = metadata;
 	}
 
-	public int getImageId() {
-		return imageId;
+	public int getId() {
+		return id;
 	}
 
-	public void setImageId(int imageId) {
-		this.imageId = imageId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public URL getFileImage() {
-		return fileImage;
+	public URL getImageSource() {
+		return imageSource;
 	}
 
-	public void setFileImage(URL fileImage) {
-		this.fileImage = fileImage;
+	public void setImageSource(URL imageSource) {
+		this.imageSource = imageSource;
 	}
 
 	public URL getThumbnail() {
@@ -45,11 +45,11 @@ public class Image {
 		this.thumbnail = thumbnail;
 	}
 
-	public Metadata getMetadata() {
-		return metadata;
+	public MetaData getMetaData() {
+		return metaData;
 	}
 
-	public void setMetadata(Metadata metadata) {
-		this.metadata = metadata;
+	public void setMetaData(MetaData metadata) {
+		this.metaData = metadata;
 	}
 }

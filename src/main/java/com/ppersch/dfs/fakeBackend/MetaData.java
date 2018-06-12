@@ -1,17 +1,17 @@
 package com.ppersch.dfs.fakeBackend;
 import java.util.Random;
 
-public class Metadata {
+public class MetaData {
 	private String owner;
-	private String date;
+	private String created;
 	private String location;
 	private String[] tagList;
 	
 	private String[] owners = {"Peter Pan", "Peter Maffay", "Peer Mertesacker", "Paul Panzer", "Pele","Pablo Picasso", "Panz vom Pauly", "Peter Parker"};
 	private int numOfOwners = owners.length;
 	
-	private String[] dates = {"25.04.2019", "10.05.2017", "26.09.2010", "02.12.1998"};
-	private int numOfDates = dates.length;
+	private String[] createds = {"25.04.2019", "10.05.2017", "26.09.2010", "02.12.1998"};
+	private int numOfDates = createds.length;
 	
 	private String[] locations = {"Buxdehude", "Saarbruecken", "Palma", "Menge-Bolche", "Wadgassen"};
 	private int numOfLocations = locations.length;
@@ -21,9 +21,9 @@ public class Metadata {
 	
 	Random random = new Random();
 	
-	public Metadata() {
+	public MetaData() {
 		this.owner = owners[random.nextInt(numOfOwners)];
-		this.date = dates[random.nextInt(numOfDates)];
+		this.created = createds[random.nextInt(numOfDates)];
 		this.location = locations[random.nextInt(numOfLocations)];
 		
 		int numOfTagsForImage = random.nextInt(3);
@@ -43,12 +43,12 @@ public class Metadata {
 		this.owner = owner;
 	}
 
-	public String getDate() {
-		return date;
+	public String getCreated() {
+		return created;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setCreated(String created) {
+		this.created = created;
 	}
 
 	public String getLocation() {

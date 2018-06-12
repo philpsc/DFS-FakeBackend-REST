@@ -8,12 +8,12 @@ import java.util.Random;
 
 public class User {
 	
-	private String userId;
+	private int userId;
 	private String userName;
 	private String userPw; //not encrypted :O
 	private List<Image> imageList;
 	
-	public User(String userId, String userName, String userPw, List<Image> imageList) {
+	public User(int userId, String userName, String userPw, List<Image> imageList) {
 		this.userId = userId;
 		this.userName = userName;
 		this.userPw = userPw;
@@ -23,28 +23,32 @@ public class User {
 	public void putRandomImages() throws MalformedURLException {
 		imageList = new ArrayList<Image>();
 		Random random = new Random();
-		int numOfPics = random.nextInt(5) + 10; // Mindestens fünf Bilder, höchstens 15
+		int numOfPics = 1000; //random.nextInt(5) + 10; Mindestens fünf Bilder, höchstens 15
 		for (int i = 0; i < numOfPics; i++) {
-			int numOfNextImage = random.nextInt(1000);
-			String imageFileURL = "https://picsum.photos/400/600/?image=" + numOfNextImage ;
+			
+			int numOfNextImage = 138;
+			while (numOfNextImage == 138 || numOfNextImage == 86 || numOfNextImage == 97 || numOfNextImage == 105 )
+				numOfNextImage = random.nextInt(147);
+			
+			String imageFileURL = "https://picsum.photos/1280/720/?image=" + numOfNextImage ;
 			String thumbnailURL = "https://picsum.photos/100/150/?image=" + numOfNextImage ;
-			Image newImage = new Image(this, new URL(imageFileURL), new URL(thumbnailURL), new Metadata()); 
+			Image newImage = new Image(this, new URL(imageFileURL), new URL(thumbnailURL), new MetaData()); 
 			imageList.add(newImage);
 		}
 	}
 	
 	public Image addImage(Image image) {
-		image.setImageId(imageList.size()+1);
+		image.setId(imageList.size()+1);
 		imageList.add(image);
 		return image;
 	}
 		
 
 	
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getUserName() {

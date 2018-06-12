@@ -18,7 +18,7 @@ public class ImagesResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Image> getImages(@PathParam("userId") String userId) throws MalformedURLException {
+	public List<Image> getImages(@PathParam("userId") int userId) throws MalformedURLException {
 		
 		return UserService.getUser(userId).getImageList();		
 	}
@@ -26,7 +26,7 @@ public class ImagesResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Image addImage(@PathParam("userId") String userId, Image image) throws MalformedURLException {
+	public Image addImage(@PathParam("userId") int userId, Image image) throws MalformedURLException {
 		return UserService.getUser(userId).addImage(image);
 	}
 

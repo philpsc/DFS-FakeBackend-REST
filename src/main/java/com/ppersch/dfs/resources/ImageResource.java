@@ -19,10 +19,10 @@ import com.ppersch.dfs.fakeBackend.UserService;
 public class ImageResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Image getImage(@PathParam("imageId") int imageId, @PathParam("userId") String userId) throws MalformedURLException {
+	public Image getImage(@PathParam("imageId") int imageId, @PathParam("userId") int userId) throws MalformedURLException {
 		List<Image> imageList = UserService.getUser(userId).getImageList();
 		for(Image image : imageList) {
-			if (image.getImageId() == imageId)
+			if (image.getId() == imageId)
 				return image;
 		}
 		return null;
@@ -31,13 +31,13 @@ public class ImageResource {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Image putImage(@PathParam("userId") String userId, @PathParam("imageId") int imageId, Image image) throws MalformedURLException {
+	public Image putImage(@PathParam("userId") int userId, @PathParam("imageId") int imageId, Image image) throws MalformedURLException {
 		List<Image> imageList =  UserService.getUser(userId).getImageList();
 		for(Image i : imageList) {
-			if (i.getImageId() == imageId) {
+			if (i.getId() == imageId) {
 				imageList.remove(i);
 				imageList.add(image);
-				imageList.sort((a, b) -> a.getImageId() - b.getImageId());
+				imageList.sort((a, b) -> a.getId() - b.getId());
 				break;
 			}
 		}
