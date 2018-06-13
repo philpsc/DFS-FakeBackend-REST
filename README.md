@@ -12,7 +12,7 @@ Apache Tomcat 7 hier runterladen, und zwar die Core Distribution. (64-bit Window
 
 ------------------------------------------------------------
 Pfadstruktur: 
-ip:port/dfs/webapi/users/{userId}/images/{imageId}/thumbnail
+ip:port/dfs/users/{userId}/images/{imageId}/thumbnail
 						  /metadata
 
 ------------------------------------------------------------
@@ -31,7 +31,7 @@ PUT:	/users/{userId}/images/{imageId}: Nimmt Image in JSON-Format an und übersc
 
 ------------------------------------------------------------
 Bekannte User:
-raph, tobi, benni, juli, phil, aude, mario
+1, 2, 3, 4, 5, 6, 7
 
 ------------------------------------------------------------
 Funktionsweise:
